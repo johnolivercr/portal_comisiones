@@ -1,0 +1,17 @@
+@use "../../../../assets/scss/variables" as var;
+@use "../../../../assets/scss/mixins" as mixins;
+
+.section-header-title{
+  .title{
+    @include mixins.common-text-properties(var.$font-family-Nunito,
+      var.$base-text-20,
+      var.$primary-dark-gray,
+      var.$semibold );
+  }
+  .subtitle{
+    @include mixins.common-text-properties(var.$font-family-Nunito,
+      var.$base-text-14,
+      var.$primary-dark-gray,
+      var.$light );
+  }
+}

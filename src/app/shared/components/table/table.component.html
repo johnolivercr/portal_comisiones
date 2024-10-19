@@ -1,0 +1,113 @@
+
+  <div [ngClass]="{
+    'table-responsive-with-title': config.title,
+    'table-responsive-full-height': config.title === '',
+  }"  class="container-table">
+    <table
+    mat-table
+    #table
+    [dataSource]="data_Source"
+    class="w-100 spacing-row table-prueba"
+    *ngIf="!loadingData"
+    matSort
+  >
+    <ng-container
+      [matColumnDef]="column.field"
+      *ngFor="let column of config.displayedColumns"
+    >
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        class="p-l-0 border-cell-header body-small text-center"
+      >
+        {{ column.label }}
+      </th>
+      <td
+        mat-cell
+        *matCellDef="let element"
+        class="p-l-0 bg-cell-data text-center"
+        [ngClass]="{ hide_on_mobile: column.hide_on_mobile }"
+      >
+        <ng-container *ngIf="column.type.toString() == 'TEXT'">
+          <span class="caption" *ngIf="column.format == ''">
+            {{ element[column.field] }}
+          </span>
+          <span class="caption" *ngIf="column.format != ''">
+            {{ element[column.field] }}
+          </span>
+        </ng-container>
+
+        <ng-container *ngIf="column.type.toString() == 'BUTTON'">
+          @if(element.state_code != 'approved' )
+          {
+            <a
+              mat-icon-button
+              color="primary"
+              (click)="handleClick(column, element)"
+            >
+              <img
+                src="../../../../assets/images/svg/editPencil.svg"
+                alt="pencil edit"
+              />
+            </a>
+          }@else{
+            <a
+              mat-icon-button
+              color="primary"
+              (click)="deletClick(column, element)"
+            >
+              <img
+                src="../../../../assets/images/svg/garbage-collector.svg"
+                alt="delet garbage"
+              />
+            </a>
+          }
+        </ng-container>
+
+        <!-- Columna del checkbox -->
+        <ng-container *ngIf="column.type.toString() == 'STATE'">
+          @if(element[column.field] == 'approved'){
+          <img
+            src="../../../../assets/images/svg/state-approved.svg"
+            alt="state approved"
+          />
+          }@else if (element[column.field] == 'finish') {
+          <img
+            src="../../../../assets/images/svg/state-finish.svg"
+            alt="state finish"
+          />
+          } @else if (element[column.field] == 'delet') {
+          <img
+            src="../../../../assets/images/svg/state-delet.svg"
+            alt="state delet"
+          />
+          } @else{
+          <img
+            src="../../../../assets/images/svg/state-finish.svg"
+            alt="state finish"
+          />
+          }
+        </ng-container>
+      </td>
+    </ng-container>
+
+    <tr
+      mat-header-row
+      *matHeaderRowDef="displayedColumns"
+      class="container-row"
+    ></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-spinner *ngIf="loadingData" class="custom-spinner"></mat-spinner>
+
+  
+  </div>
+  <span  class="paginator-container">
+     <mat-paginator
+    (page)="onPageChanged($event)"
+    showFirstLastButtons
+    [length]="totalElements"
+  ></mat-paginator>
+  </span>
+ 
+

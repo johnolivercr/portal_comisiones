@@ -1,0 +1,78 @@
+<main class="epicrisis-edit-main">
+  <div *ngIf="showMainContent">
+    <app-epicrisis-edit-header [userName]="patient.short_name" (toggleContent)="toggleVisibility()"></app-epicrisis-edit-header>
+    <section class="information-container">
+      <article class="transcription">
+        <p class="transcription-title">Transcripción</p>
+        <div class="transcription-container">
+          @if((transcript$) | async){
+              <div class="transcripted-text-container">
+                <textarea matInput rows="10" [(ngModel)]="totalTranscript" (input)="onManuallyChange()" class="transcript-area "></textarea>
+                <!-- <textarea matInput rows="10" class="transcript-area " ></textarea> -->
+              </div>
+          }@else if(!microActive) {
+              <div class="transcription-message-container">
+                <p class="transcription-message">Para iniciar la transcripción de audio a texto por favor da click en el icono
+                  de </p>
+                <img src="assets/images/svg/micGrey.svg" alt="mic">
+              </div>
+              <p *ngIf="!arthurReady" class="transcription-instructions">
+                Para realizar la transcripción asegúrese de que el dispositivo microfono esté funcionando correctamente
+              </p>
+
+              <button *ngIf="!arthurReady" class="test-mic" (click)="openEnableMicro()">
+                <img src="assets/images/svg/micGrey.svg" alt="mic">
+                Probar dispositivo de entrada
+              </button>
+
+          }
+        </div>
+      </article>
+
+      <article class="appointment-information">
+        <app-appointment-information [transcriptions]="correctedTranscript"></app-appointment-information>
+
+      </article>
+      <section *ngIf="microActive" class="card-footer-actions">
+        <article class="recording-actions">
+          <button class="epicrisis-icon-button" (click)="clearLastPart()">
+            <img src="assets/images/svg/backIcon.svg" alt="back">
+          </button>
+          <button class="epicrisis-icon-button">
+            @if(listening$ | async){
+            <img src="assets/images/svg/micGreen.svg" class="footer-mic" alt="mic" (click)="stop()">
+            }@else {
+            <img src="assets/images/svg/micGrey.svg" class="footer-mic" alt="mic" (click)="start()">
+            }
+          </button>
+          <button class="epicrisis-icon-button" (click)="clearTranscription()">
+            <img src="assets/images/svg/Trash.svg" alt="delete">
+          </button>
+           <button *ngIf="microActive" [disabled]="!microActive" class="finish-recording" (click)="saveEpi()">
+            <img src="assets/images/svg/write.svg" alt="aprove"> Generar epicrisis
+          </button>
+        </article>
+      </section>
+    </section>
+    <div class="divider-line"></div>
+    <section class="card-footer-actions">
+      <section class="recorder-detail">
+        <img class="img-record" src="assets/images/svg/arthurLogo.svg" alt="arthurLogo">
+          <p *ngIf="arthurReady" class="description-ready">Arthur esta listo</p>
+          <div *ngIf="threeDots" class="three-dots"><span></span><span></span><span></span></div>
+      </section>
+      <article class="status-epicrisis">
+        <div class="status-circle"></div>
+        <p class="status-description">Estado: Finalizado</p>
+        <button class="aprove-button" (click)="approveEpicrisis()">
+          <img src="assets/images/svg/checkIcon.svg" alt="aprove"> Aprobar
+        </button>
+      </article>
+    </section>
+  </div>
+  <div *ngIf="!showMainContent">
+    <ngx-component-epicrisis-history (toggleContent)="toggleVisibility()"></ngx-component-epicrisis-history>
+  </div>
+
+
+</main>

@@ -1,0 +1,82 @@
+@use '../../../../assets/scss/mixins' as mixins;
+
+.layout {
+    width: auto;
+    height: 100vh;
+    padding: 32px;
+
+    @include mixins.small-screen {
+        padding: 0;
+    }
+.container-section{
+    height: calc(100vh - 6rem);
+    // overflow-y: auto;
+    padding-right: 17px;
+      .content-wrapper__line-header {
+        height: 1px;
+        width: 100%;
+        background-color: #E0E0E0;
+        margin-bottom: 24px;
+
+        @include mixins.medium-screen {
+            margin-top: 16px;
+        }
+    }
+}
+
+
+    .layout__content-wrapper {
+        padding-top: 16px;
+        height: calc(100% - 74px);
+        display: grid;
+        grid-template-columns: minmax(68px, 72px) minmax(150px, 1fr);
+        gap: 16px;
+
+        @include mixins.small-screen {
+            grid-template-columns: 100%;
+            padding: 0px 16px 16px 16px;
+        }
+
+        @include mixins.medium-screen {
+            grid-template-columns: 100%;
+            padding: 0px 16px 16px 16px;
+        }
+
+        .sidenav-container {
+            @include mixins.small-screen {
+                display: none;
+            }
+
+            @include mixins.medium-screen {
+                display: none;
+            }
+        }
+
+        .menu-visible {
+            @include mixins.small-screen {
+                position: absolute;
+                display: block;
+            }
+
+            @include mixins.medium-screen {
+                position: absolute;
+                display: block;
+            }
+        }
+    }
+
+}
+
+
+::ng-deep .sidenav-wrapper {
+    height: calc(100vh - 6rem)!important;
+}
+
+::ng-deep .item-option{
+    justify-content: center!important;
+    padding-top: 22px;
+}
+
+::ng-deep .header__right-section{
+    display: none!important;
+}

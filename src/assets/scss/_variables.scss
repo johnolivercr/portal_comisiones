@@ -1,0 +1,77 @@
+
+/* #region fonts */
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("../fonts/Nunito.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+$font-family-Nunito: "Nurito", sans-serif;
+/* #endregion fonts */
+
+/* #region colors */
+//Gray
+$primary-dark-gray-light: #A1A1A1;
+$primary-purple: #791B39;
+$primary-dark-gray: #55585A;
+$secondary-gray: #F9F9FC;
+
+// Neutral base
+$black: #000000;
+$dark-grey: #111111;
+$dark-medium-grey: #676A6A;
+$dark-light-grey: #959B9B;
+$medium-grey: #C0C8C8;
+$medium-light-grey: #E6EBEB;
+$white: #FFFFFF;
+$light-grey: #E0E0E0;
+$grey-medium-hard: #3B3B3B;
+$green: #57E426;
+$orange:#FCAE52;
+$gray-state:#979797;
+$blue-astral:#37509E;
+
+/* #endregion colors */
+
+/* #region fontSize */
+// regular text
+$base-text-64: 64px;
+$base-text-48: 48px;
+$base-text-40: 40px;
+$base-text-36: 36px;
+$base-text-28: 28px;
+$base-text-20: 20px;
+$base-text-19: 19px;
+$base-text-18: 18px;
+$base-text-17: 17px;
+$base-text-16: 16px;
+$base-text-15: 15px;
+$base-text-14: 14px;
+$base-text-13: 13px;
+$base-text-12: 12px;
+$base-text-11: 11px;
+$base-text-10: 10px;
+
+/* #endregion fontSize */
+
+/* #region fontWeight */
+// font weigth
+$bold: 700;
+$semibold: 600;
+$regular: 500;
+$light: 400;
+
+/* #endregion FontWeigt */
+
+/* #region border radius */
+$radius-5: 5px;
+$radius-8: 8px;
+$radius-10: 10px;
+$radius-12: 12px;
+$radius-14: 14px;
+$radius-16: 16px;
+$radius-20: 20px;
+$radius-24: 24px;
+$radius-28: 28px;
+$radius-32: 32px;
+/* #endregion border radius  */

@@ -1,0 +1,84 @@
+<div class="grid-container">
+  <div class="area1">
+    <div class="input-container">
+      <form [formGroup]="filterForm">
+        <input
+          class="search"
+          type="text"
+          formControlName="filterText"
+          placeholder="Buscar por nombre o por identificación..."
+          (input)="textChange($event)"
+        />
+        <button class="search-button"  (click)="onHandleFilter()"  type="submit">
+          <img
+            class="search-icon"
+            src="/assets/images/svg/buttonCircle.svg"
+            alt="Search"
+
+          />
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="area2">
+    <button [matMenuTriggerFor]="sortMenu" class="text-button ">
+        <img src="/assets/images/svg/arrowsOrder.svg" alt="Arrows Order" />
+        Ordenar
+    </button>
+
+    <mat-menu #sortMenu backdropClass="sort-menu">
+      <div class="menu-radio-item">
+        <mat-radio-group [(ngModel)]="sortOptionSelected">
+          @for(item of sortOptions; track item){
+          <mat-radio-button [value]="item" (change)="onHandleSort($event)">{{
+            item.text
+          }}</mat-radio-button>
+          }
+        </mat-radio-group>
+      </div>
+    </mat-menu>
+
+    <button
+    class="text-button "
+      [class.selected-button]="viewFiltersSelected() == false"
+      (click)="viewFiltersSelected()"
+    >
+        @if(viewFilters == false){
+        <img src="/assets/images/svg/xIcon.svg" alt="xIcon" />
+        Ocultar filtros }@else if(viewFilters == true){
+        <img src="/assets/images/svg/settingFilter.svg" alt="Setting Filter" />
+        Mostrar filtros }
+    </button>
+    @if(viewFiltersSelected()){
+    <button class="filters text-button ">
+        Especialidad <img src="assets/images/svg/arrowFilter.svg" alt="Arrow" />
+    </button>
+    <button class="filters text-button ">
+        Estado <img src="assets/images/svg/arrowFilter.svg" alt="Arrow" />
+    </button>
+    }
+  </div>
+  <div class="area3">
+    <div class="status">
+      <img
+        src="../../../../../assets/images/svg/state-delet.svg"
+        alt="state delet"
+      />
+      <span>Borrador</span>
+    </div>
+    <div class="status">
+      <img
+        src="../../../../../assets/images/svg/state-approved.svg"
+        alt="state approved"
+      />
+      <span>Aprobado</span>
+    </div>
+    <div class="status">
+      <img
+        src="../../../../../assets/images/svg/state-finish.svg"
+        alt="state finish"
+      />
+      <span>Finalizado</span>
+    </div>
+  </div>
+</div>

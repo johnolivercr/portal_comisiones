@@ -1,0 +1,38 @@
+@use "../../../../assets/scss/variables" as var;
+@use "../../../../assets/scss/mixins" as mixins;
+@use '../../../../assets/scss/buttons' as buttons;
+
+$border-light-grey: 1px solid var.$light-grey;
+
+::ng-deep .mat-mdc-dialog-surface{
+    border-radius: 20px !important;
+    width: 532px !important;
+}
+
+.modal-general{
+  text-align: center;
+  .container-close{
+    text-align: right;
+  }
+  .container-content{
+    .title{
+      @include mixins.common-text-properties(var.$font-family-Nunito, 16px, var.$primary-dark-gray, var.$semibold );
+      margin-bottom: 4px;
+    }
+    .description{
+      @include mixins.common-text-properties(var.$font-family-Nunito, 14px, var.$primary-dark-gray, var.$light );
+      margin-bottom: 50px;
+    }
+  }
+
+}
+
+.modal-actions{
+  justify-content: center;
+  .btn-cancel{
+    @include buttons.custom-icon-buttton(194px, var.$base-text-14, var.$white, var.$light, $border-light-grey, var.$radius-5, 32px, var.$font-family-Nunito, none, 0px, 0, 25px, 15px, 5px, var.$grey-medium-hard );
+  }
+  .btn-action{
+    @include buttons.custom-icon-buttton(194px, var.$base-text-14, var.$grey-medium-hard, var.$light, $border-light-grey, var.$radius-5, 32px, var.$font-family-Nunito, none, 0px, 0, 25px, 15px, 5px, var.$white );
+  }
+}

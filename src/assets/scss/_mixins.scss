@@ -1,0 +1,37 @@
+@mixin common-text-properties($fontFamily, $size, $color, $weight) {
+    font-size: $size;
+    color: $color !important;
+    font-family: $fontFamily;
+    font-weight: $weight;
+    margin-bottom: 0;
+}
+
+
+
+/* Small screen devices (600px and above) */
+@mixin small-screen {
+    @media only screen and (max-width: 767px) {
+        @content;
+    }
+}
+
+/* Medium screen devices (768px and above) */
+@mixin medium-screen {
+    @media only screen and (min-width: 768px) and (max-width: 1023px) {
+        @content;
+    }
+}
+
+/* Big screen devices (889px and above) */
+@mixin big-screen {
+    @media only screen and (min-width: 1024px) and (max-width: 1199px) {
+        @content;
+    }
+}
+
+/* Extra big screen devices (1200px and above) */
+@mixin extra-big-screen {
+    @media only screen and (min-width: 1200px) {
+        @content;
+    }
+}

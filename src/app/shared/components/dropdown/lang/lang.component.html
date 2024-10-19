@@ -1,0 +1,16 @@
+
+
+<section class="lang-selector">
+    <mat-form-field class="w-100">
+        <mat-select [ngStyle]="{'--select-icon-color': color}" [(value)]="selectedLanguage" placeholder="" (selectionChange)="onChangeLanguage($event.value)">
+            <mat-select-trigger [ngStyle]="{'color': color}">
+                <img [src]="selectedLanguage.icon" alt="Bandera" height="20" width="30" class="me-2">
+                {{ selectedLanguage.short_name }}
+            </mat-select-trigger>
+            <mat-option *ngFor="let lang of languages" [value]="lang">
+                <img [src]="lang.icon" alt="Bandera" height="20" width="30">
+                {{ lang.short_name }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</section>

@@ -1,0 +1,23 @@
+@mixin custom-icon-buttton($btn-width, $size, $bg-color, $weight, $border, $radius, $height, $family, $shadow, $padding: 0, $mt: 0, $mb: 0, $me: 0, $ms: 0, $font-color) {
+    min-width: $btn-width ;
+    height: $height;
+    font-family: $family;
+    font-size: $size;
+    background-color: $bg-color;
+    border: $border;
+    border-radius: $radius ;
+    color: $font-color;
+    margin: $mt $me $mb $ms;
+    padding: $padding;
+    font-weight: $weight;
+    box-shadow: $shadow;
+}
+
+@mixin icon-button($width, $height, $background, $shadow, $border, $radius){
+    min-width: $width; 
+    height: $height;
+    background: $background;
+    box-shadow: $shadow;
+    border: $border; 
+    border-radius: $radius;
+}

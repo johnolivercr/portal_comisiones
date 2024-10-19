@@ -1,0 +1,111 @@
+@use "../../../../assets/scss/_variables" as var;
+@use "../../../../assets/scss/mixins" as mixins;
+
+.container-table{
+
+  @include mixins.medium-screen {
+    width: 100%;
+    overflow: scroll;
+  }
+  @include mixins.small-screen {
+    display: none;
+  }
+}
+.hide_on_mobile {
+  display: none;
+}
+
+.custom-spinner {
+  left: 45%;
+  top: 45%;
+  position: absolute;
+}
+
+.container-row{
+  background-color: #F9F9FC;
+}
+
+.border-cell-header{
+  @include mixins.common-text-properties(var.$font-family-Nunito, 14px, #808192, var.$regular );
+  border-top-width: var(--mat-table-row-item-outline-width, 1px);
+  border-top-color: var(--mat-table-row-item-outline-color, rgba(0, 0, 0, 0.12));
+}
+
+.bg-cell-data{
+  background-color: #F9F9FC;
+  border-right: 1px solid var(--mat-table-row-item-outline-color, rgba(0, 0, 0, 0.12));
+}
+
+.spacing-row{
+  margin-top: 24px;
+  border-spacing: 0 5px;
+  border-collapse: separate;
+}
+
+.mat-mdc-icon-button.mat-primary{
+  --mdc-icon-button-icon-color: var.$primary-dark-gray;
+}
+::ng-deep .mat-mdc-slide-toggle.mat-mdc-slide-toggle-checked:not(.mat-disabled) .mdc-switch__shadow {
+  background-color: green;
+  /*replace with your color*/
+}
+
+::ng-deep .mat-mdc-slide-toggle.mat-mdc-slide-toggle-checked:not(.mat-disabled) .mdc-switch__track::after {
+  background-color: green !important;
+  /*replace with your color*/
+}
+
+::ng-deep .mdc-switch{
+  --mdc-switch-disabled-selected-icon-opacity: 1 !important;
+  --mdc-switch-disabled-track-opacity: 1 !important;
+}
+
+
+::ng-deep .mat-mdc-card-content {
+  margin-top: 24px;
+  padding: 0 !important;
+}
+::ng-deep .mat-mdc-card{
+  box-shadow: none !important;
+}
+
+
+.table-responsive-full-height {
+  overflow-x: auto;
+  height: calc(100vh - 30rem);
+  transition: all 0.3s ease;
+  overflow-y: auto;
+
+  td,
+  mat-cell {
+    white-space: nowrap;
+    padding: 0px 8px;
+  }
+
+@include mixins.medium-screen{
+  height: calc(-35rem + 100vh)!important;
+}
+@include mixins.big-screen{
+  height: calc(-32rem + 100vh)!important;
+}
+
+}
+
+
+.table-responsive-with-title {
+  overflow-x: auto;
+  height: calc(100vh - 17.5rem);
+  transition: all 0.3s ease;
+
+  td,
+  mat-cell {
+    white-space: nowrap;
+    padding: 0px 8px;
+  }
+}
+
+.paginator-container{
+  @include mixins.small-screen {
+    display: none;
+  }
+}

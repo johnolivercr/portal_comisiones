@@ -1,0 +1,15 @@
+
+<mat-dialog-content class="modal-general">
+  <div class="container-close">
+    <img mat-dialog-close src="assets/images/svg/xIcon.svg" alt="close">
+  </div>
+  <div class="container-content">
+    <p class="title">{{data.title}}</p>
+    <p class="description">{{data.description}}</p>
+    <img src="{{data.img}}" alt="remove">
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions class="modal-actions">
+  <button class="btn-action" (click)="onInstall()">{{data.lblBtn}}</button>
+  <button mat-dialog-close class="btn-cancel">Regresar</button>
+</mat-dialog-actions>

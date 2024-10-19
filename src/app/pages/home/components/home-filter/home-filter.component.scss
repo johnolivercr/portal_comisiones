@@ -1,0 +1,150 @@
+@use "../../../../../assets/scss/variables" as var;
+@use '../../../../../assets/scss/mixins' as mixins;
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 385.5px auto auto;
+  gap: 16px;
+  padding-top: 10px;
+  @include mixins.small-screen {
+    grid-template-columns: auto;
+  }
+  @include mixins.medium-screen {
+    grid-template-columns: auto;
+  }
+}
+
+.input-container {
+  position: relative;
+}
+
+.area1 {
+  width: 385.5px;
+  @include mixins.small-screen {
+    width: 100%;
+  }
+}
+
+.area2 {
+  grid-column: span 1;
+}
+
+.area3 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  @include mixins.small-screen {
+    display: none;
+    justify-content: space-between;
+  }
+  @include mixins.medium-screen {
+    justify-content: flex-start;
+  }
+}
+
+.status {
+  margin-left: 20px;
+  @include mixins.small-screen {
+    margin-left: 0px;
+  }
+  @include mixins.medium-screen {
+    margin-left: 0px;
+    margin-right: 20px;
+  }
+
+  span {
+    font-family: var.$font-family-Nunito;
+    font-size: 14px;
+    font-weight: 400;
+    color: var.$primary-dark-gray;
+    line-height: 19px;
+    margin-left: 4px ;
+  }
+}
+
+.search {
+  width: 385.5px;
+  font-family: var.$font-family-Nunito;
+  height: 32px;
+  border-radius: 30px;
+  border: solid 1px var.$primary-dark-gray-light;
+  padding-left: 16px;
+  @include mixins.small-screen {
+    width: 100%;
+  }
+}
+
+.search::placeholder {
+  font-family: var.$font-family-Nunito;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.1px;
+  text-align: left;
+  padding-right: 40px;
+}
+
+.search-button {
+  position: absolute;
+  top: 50%;
+  right: -17px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: 0;
+}
+
+button {
+  margin-right: 16px;
+  border-radius: 5px;
+  height: 32px;
+  border: solid 1px var.$primary-dark-gray-light;
+  opacity: 0px;
+  background-color: var.$white;
+}
+
+.text-button {
+  font-family: var.$font-family-Nunito;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+  cursor: pointer;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.selected-button {
+  background-color: var.$primary-dark-gray-light;
+}
+
+.filters {
+  height: 32px;
+  border-radius: 21.15px;
+  border: var.$primary-dark-gray solid 1px;
+}
+
+::ng-deep .sort-menu + * .mat-mdc-menu-panel {
+  background-color: white !important;
+}
+
+::ng-deep .menu-radio-item {
+  .mat-mdc-radio-button.mat-mdc-radio-checked .mdc-radio__background::before {
+    background-color: var.$primary-purple !important;
+  }
+
+  .mat-mdc-radio-button
+    .mdc-radio
+    .mdc-radio__native-control:enabled:checked
+    + .mdc-radio__background
+    .mdc-radio__outer-circle {
+    border-color: var.$primary-purple !important;
+  }
+  .mat-mdc-radio-button
+    .mdc-radio
+    .mdc-radio__native-control:enabled
+    + .mdc-radio__background
+    .mdc-radio__inner-circle {
+    border-color: var.$primary-purple !important;
+  }
+  .mat-mdc-radio-button.mat-mdc-radio-checked .mat-ripple-element {
+    background-color: var.$primary-purple !important;
+  }
+}

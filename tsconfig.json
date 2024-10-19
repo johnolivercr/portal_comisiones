@@ -1,0 +1,64 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": false,
+    "baseUrl": "./src",
+    "paths": {
+      "@layouts/layout/blank":[ "app/layouts/_blank/blank.component.ts" ],
+      "@env/environment": [ "environments/environment.ts" ],
+      "@app/service/common/*": [ "app/shared/services/common/common.service.ts" ],
+      "@app/service/modal": [
+        "app/shared/services/common/modal.service.ts"
+      ],
+      "@app/loading/*": [
+        "app/pages/loading/*"
+      ],
+      "@app/model/*": [
+        "app/model/*"
+      ],
+      "@app/component/modal": [
+        "app/shared/components/modal/modal.component.ts"
+      ],
+      "@app/auth/login/*": [
+        "app/pages/authentication/login/*"
+      ],
+      "@app/agent/*": [
+        "app/pages/callcenter/agents/*"
+      ],
+      "@app/shared/*": [
+        "app/shared/*"
+      ]
+    },
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2022",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "module": "ES2020",
+    "lib": [
+      "ES2020",
+      "dom"
+    ],
+    "useDefineForClassFields": false
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  },
+  "noImplicitAny": false
+}

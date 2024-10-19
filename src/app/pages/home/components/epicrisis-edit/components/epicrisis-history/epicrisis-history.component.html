@@ -1,0 +1,10 @@
+<section class="section-history">
+  <button class="btn-back" (click)="onToggleContent()">
+    <img src="assets/images/svg/back.svg" alt="back">
+    Regresar
+  </button>
+  <ngx-component-home-filter
+  [sortOptions]="sortOptions"
+></ngx-component-home-filter>
+</section>
+<ngx-component-table [config]="_config" [datasource]="dataSource"></ngx-component-table>

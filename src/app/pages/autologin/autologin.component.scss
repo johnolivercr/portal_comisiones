@@ -1,0 +1,34 @@
+@use '../../../assets/scss/variables' as var;
+@use '../../../assets/scss/mixins' as mixins;
+
+.autologin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .autologin__message {
+        .message__text {
+            @include mixins.common-text-properties(var.$font-family-Nunito, 36px, var.$primary-dark-gray, var.$bold);
+        }
+
+        .message__text-secundary {
+            @include mixins.common-text-properties(var.$font-family-Nunito, 14px, var.$primary-dark-gray, var.$light);
+            text-align: center;
+
+        }
+    }
+
+    .autologin__load-animation {
+        height: 111px;
+        width: 200px;
+  
+    }
+    .autologin__messages{
+        .message__footer{
+            @include mixins.common-text-properties(var.$font-family-Nunito, 12px, var.$primary-dark-gray, var.$light);
+
+        }
+    }
+}

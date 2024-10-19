@@ -1,0 +1,60 @@
+@use "../../../../assets/scss/_variables" as var;
+@use "../../../../assets/scss/mixins" as mixins;
+
+.section-cards-table{
+  display: none;
+  @include mixins.small-screen {
+    display: inline;
+  }
+  .card-table{
+    background-color: var.$secondary-gray;
+    width: 100%;
+    padding: 16px;
+    border-radius: 10px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    .container-action{
+      display: flex;
+      align-items: center;
+      justify-content:space-between;
+      margin-bottom: 5px;
+      .title-patient {
+        @include mixins.common-text-properties(var.$font-family-Nunito, var.$base-text-10, var.$primary-dark-gray, var.$semibold );
+      }
+      .container-state{
+        display: flex;
+        align-items: center;
+        .state{
+          margin-right: 5px;
+          background-color: var.$white;
+          border-radius: 25px;
+          padding: 0px 8px;
+        }
+        .state-approved{
+          @include mixins.common-text-properties(var.$font-family-Nunito, var.$base-text-10, var.$green, var.$semibold );
+        }
+        .state-finish{
+          @include mixins.common-text-properties(var.$font-family-Nunito, var.$base-text-10, var.$gray-state, var.$semibold );
+        }
+        .state-delet{
+          @include mixins.common-text-properties(var.$font-family-Nunito, var.$base-text-10, var.$orange, var.$semibold );
+        }
+      }
+    }
+    .name-patient {
+      @include mixins.common-text-properties(var.$font-family-Nunito, var.$base-text-16, var.$primary-dark-gray, var.$semibold );
+    }
+    .two-columns{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      .title-row{
+        @include mixins.common-text-properties(var.$font-family-Nunito, var.$base-text-10, var.$primary-dark-gray, var.$semibold );
+      }
+      .title-column{
+        @include mixins.common-text-properties(var.$font-family-Nunito,  var.$base-text-10, var.$primary-dark-gray, var.$semibold );
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+<div class="loading-wrapper animate__animated"
+  [ngClass]="{'animate__fadeIn show': loading , 'animate__fadeOut hide':!loading, 'use-transparent': !useHeartLoading}">
+  <ng-container *ngIf="useHeartLoading">
+    <ng-lottie [options]="options" (loopComplete)="onLoopComplete()"></ng-lottie>
+  </ng-container>
+
+</div>
