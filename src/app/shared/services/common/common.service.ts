@@ -8,6 +8,7 @@ import { NotifyService } from "./notify.service";
 import { IRequest, IRequestGateway } from "app/shared/interfaces/common/request.interface";
 import { LocalStorageService } from "app/core/services/local-storage.service";
 import { Utils } from "app/shared/utils/utils";
+import { IResponse } from "@app/shared/interfaces/common/response.interface";
 //import { DataCryptService, LocalStorageService } from "@grupomontecristo/services";
 
 @Injectable({ providedIn: "root" })
@@ -66,7 +67,7 @@ export class CommonService {
    * @param request
    * @returns
    */
-  executeMethod(request: IRequest): Observable<any> {
+  executeMethod(request: IRequest): Observable<IResponse> {
     const { operation, data, microservice, method } = request;
     const httpOptions = this.createHttpOptions(microservice, method);
     request = this.mapingAuditParameter(request);
@@ -155,7 +156,7 @@ export class CommonService {
    */
   showError(error: any) {
 
-    this.notifyService.OnNotifyError(error.error.message);
+    this.notifyService.OnNotifyError('', error.error.message);
     this.setLoading(false);
   }
 }

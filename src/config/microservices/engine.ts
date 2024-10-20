@@ -4,7 +4,7 @@ export const engine = {
       methods: {
         getView: 'method:core:get:view',
         getSystemLang: 'method:core:get:system_lang',
-        editEpicrisis: 'method:aws:bedrock:claude-3-haiku-20240307'
+        getEmployed: 'method:get:ssf_consulta_empleado_comisiones'
       },
     },
   };

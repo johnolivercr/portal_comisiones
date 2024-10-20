@@ -27,7 +27,7 @@ export class NotifyService {
     const isObject = typeof message === "object";
     message = isObject ? message.name : message;
     // this._commonService._setLoading(false);
-    this.OnNotifyError(message);
+    this.OnNotifyError('', message);
     this.logger.error(message);
   };
 
@@ -69,10 +69,10 @@ export class NotifyService {
     });
   };
 
-  OnNotifyError = (message:string) => {
+  OnNotifyError = (title:string, message: string) => {
     const customContent = `
     <div class="modal-custom-general">
-      <h2 class="title">Parece que ocurrio un error</h2>
+      <h2 class="title">${title}}</h2>
       <p class="subtitle mb-0">${message}</p>
     </div>
   `;

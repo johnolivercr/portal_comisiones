@@ -7,7 +7,6 @@ import { environment } from "../../../environments/environment";
 @Injectable({ providedIn: "root" })
 export class LocalStorageService {
 
-    private version: string = environment.version;
     private storage: Storage;
     constructor(
         _localStorageRefService: LocalStorageRefService,

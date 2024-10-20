@@ -1,0 +1,13 @@
+<div class="auth-container">
+    <h4 class="auth-subtitle">Ingrese digitando tu número de cédula*</h4>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="custom-form-field">
+            <mat-label>Número de cédula</mat-label>
+            <input matInput type="identification" formControlName="identification" placeholder="Número de cédula">
+            <mat-error *ngIf="identification?.invalid && identification?.touched">El número de cédula.</mat-error>
+          </mat-form-field>
+  
+      <button type="submit" [disabled]="loginForm.invalid">Envíar código</button>
+    </form>
+  </div>
+  

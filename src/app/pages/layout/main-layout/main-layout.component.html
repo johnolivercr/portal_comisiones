@@ -1,15 +1,14 @@
 <main class="layout">
-    <ngx-header [companyAbbreviation]="compannyAbbreviation" [companyName]="name" [userName]="lblUserName" 
-        (toggleSidenav)="onToggleMenu()" [profileImage]="userImage"  >
-    </ngx-header>
-    <div class="layout__content-wrapper">
-        <section class="container-section" >
-            <div class="content-wrapper__line-header"></div>
-            <div class="layout-content">
-                <div class="content-pages">
-                    <router-outlet />
-                </div>
-            </div>
-        </section>
-    </div>
+    <app-header
+    [companyAbbreviation]="compannyAbbreviation" 
+    [companyName]="name" 
+    [userName]="lblUserName" 
+    [profileImage]="userImage"
+    (toggleSidenav)="onToggleMenu()"  >
+    </app-header>
+
+    <app-layout-content>
+        <router-outlet></router-outlet>
+    </app-layout-content>
+
 </main>

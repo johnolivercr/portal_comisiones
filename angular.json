@@ -32,22 +32,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest",
-              {
-                "glob": "**/*",
-                "input": "node_modules/@grupomontecristo/footer/assets",
-                "output": "/assets/"
-              },
-              {
-                "glob": "**/*",
-                "input": "node_modules/@grupomontecristo/header/assets",
-                "output": "/assets/"
-              },
-              {
-                "glob": "**/*",
-                "input": "node_modules/@grupomontecristo/sidenav/assets",
-                "output": "/assets/"
-              }
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",

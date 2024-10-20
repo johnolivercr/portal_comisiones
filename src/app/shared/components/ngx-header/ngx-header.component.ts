@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import {MatMenuModule} from '@angular/material/menu';
 
 @Component({
-  selector: 'ngx-header',
+  selector: 'app-header',
   standalone: true,
   imports: [CommonModule, MatMenuModule],
   templateUrl: './ngx-header.component.html',
