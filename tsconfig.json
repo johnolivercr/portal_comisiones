@@ -1,13 +1,37 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "allowJs": true,
-    "checkJs": false,
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "declaration": false,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "useDefineForClassFields": false,
+    "lib": [
+      "ES2022",
+      "dom"
+    ],
     "baseUrl": "./src",
     "paths": {
-      "@layouts/layout/blank":[ "app/layouts/_blank/blank.component.ts" ],
-      "@env/environment": [ "environments/environment.ts" ],
-      "@app/service/common/*": [ "app/shared/services/common/common.service.ts" ],
+      "@layouts/layout/blank":[
+        "app/layouts/_blank/blank.component.ts"
+      ],
+      "@env/environment": [ "environments/environment.ts"],
+      "@app/service/common/*": [
+        "app/shared/services/common/common.service.ts"
+      ],
       "@app/service/modal": [
         "app/shared/services/common/modal.service.ts"
       ],
@@ -29,30 +53,8 @@
       "@app/shared/*": [
         "app/shared/*"
       ]
-    },
-    "outDir": "./dist/out-tsc",
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "sourceMap": true,
-    "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "ES2022",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "module": "ES2020",
-    "lib": [
-      "ES2020",
-      "dom"
-    ],
-    "useDefineForClassFields": false
+
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

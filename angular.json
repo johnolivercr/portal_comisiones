@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "arthur": {
+    "comisiones": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -15,8 +15,12 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
+            "customWebpackConfig": {
+              "path": "./webpack.config.ts",
+              "replaceDuplicatePlugins": true
+            },
             "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -46,13 +50,9 @@
               }
             ],
             "styles": [
-              "src/styles.scss",
-              "src/assets/scss/style.scss",
               "@angular/material/prebuilt-themes/indigo-pink.css",
-              "node_modules/bootstrap/dist/css/bootstrap.css",
-              "node_modules/@grupomontecristo/footer/assets/css/ngx-gm-styles.css",
-              "node_modules/@grupomontecristo/header/assets/css/ngx-gm-styles.css",
-              "node_modules/@grupomontecristo/sidenav/assets/css/ngx-gm-styles.css"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
@@ -63,13 +63,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "12mb",
-                  "maximumError": "12mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "12mb",
-                  "maximumError": "12mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 }
               ],
               "fileReplacements": [
@@ -92,25 +87,25 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@ngx-env/builder:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "arthur:build:production"
+              "buildTarget": "comisiones:build:production"
             },
             "development": {
-              "buildTarget": "arthur:build:development"
+              "buildTarget": "comisiones:build:development"
             }
           },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "builder": "@ngx-env/builder:extract-i18n",
           "options": {
-            "buildTarget": "arthur:build"
+            "buildTarget": "comisiones:build"
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@ngx-env/builder:karma",
           "options": {
             "polyfills": [
               "zone.js",
@@ -124,6 +119,7 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/assets/scss/style.scss",
               "src/styles.scss"
             ],
             "scripts": []

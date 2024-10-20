@@ -1,0 +1,229 @@
+@use '../../../../assets/scss/mixins' as mixins;
+@use '../../../../assets/scss/variables' as var;
+
+.header {
+    display: flex;
+    background-color: var.$blue-mexpress;
+
+    @include mixins.small-screen {
+        padding: 16px;
+    }
+
+    .logo-image {
+        height: 4rem;
+    }
+}
+
+.header .header__center-section {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra horizontalmente */
+    flex: 1;
+    padding: 1rem ;
+}
+
+
+.header .header__menu-icon {
+    margin-right: 38px;
+    display: none;
+
+    @include mixins.small-screen {
+        display: block;
+    }
+
+    @include mixins.medium-screen {
+        display: block;
+    }
+}
+
+.header .header__logo {
+    margin-right: 67px;
+
+    .logo-image {
+        @include mixins.small-screen {
+            height: 23px;
+        }
+    }
+
+}
+
+
+.header .header__company-name-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 8px 5px 5px;
+    border: 1px solid #A1A1A1;
+    border-radius: 30px;
+
+    @include mixins.small-screen {
+        display: none;
+    }
+
+    @include mixins.medium-screen {
+        display: none;
+    }
+}
+
+.abbreviation {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(#9232B4 0%, #1F158E 100%);
+    border-radius: 50%;
+
+    .abbreviation__text {
+        color: #FFFFFF;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 20px;
+        font-family: var(--font-family1);
+    }
+}
+
+
+
+.header__company-name-container .company-name-container__name {
+    color: #55585A;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    margin: 0;
+    font-family: var(--font-family1);
+}
+
+
+.header__company-name-container .company-name-container__status {
+    height: 8px;
+    width: 8px;
+    background: #57E426;
+    border-radius: 50%;
+}
+
+.header .header__right-section {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+}
+
+.header__right-section .header__user-avatar-container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-right: 16px;
+    pointer-events: none;
+
+    @include mixins.small-screen {
+        pointer-events: all;
+    }
+
+    @include mixins.medium-screen {
+        pointer-events: all;
+    }
+}
+
+.user-avatar-container__name {
+    font-family: var(--font-family1);
+
+    @include mixins.small-screen {
+        display: none;
+    }
+
+    @include mixins.medium-screen {
+        display: none;
+    }
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+
+    .status {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 8px;
+        width: 8px;
+        background: #57E426;
+        border-radius: 32px;
+    }
+}
+
+
+
+
+.green-dot {
+    height: 8px;
+    width: 8px;
+    background: #57E426;
+    border-radius: 32px;
+}
+
+.suit-icon {
+    margin-right: 17px;
+}
+
+.action-icons {
+    display: flex;
+    gap: 8px;
+
+    @include mixins.small-screen {
+        display: none;
+    }
+
+    @include mixins.medium-screen {
+        display: none;
+    }
+}
+
+::ng-deep .mat-mdc-menu-panel {
+    min-width: 150px !important;
+    max-width: 300px !important;
+    padding: 16px !important;
+    background-color: rgba(85, 88, 90, 1) !important;
+}
+
+.company {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--neutral-grey-light);
+    ;
+    padding: 8px;
+    border-radius: 30px;
+    margin-top: 0.8rem;
+}
+
+.user-name {
+    margin: 0;
+    text-align: center;
+    color: var(--neutral-grey-light);
+}
+
+.company-name {
+    color: var(--neutral-grey-light);
+    font-size: 14px;
+    line-height: 19px;
+    font-family: var(--font-family1);
+    margin: 0;
+}
+
+.menu-items {
+    color: var(--neutral-grey-light);
+    font-size: 14px;
+    line-height: 19px;
+    font-family: var(--font-family1);
+    margin: 0;
+}
+
+.suit-items {
+    color: var(--neutral-grey-light);
+    font-size: 14px;
+    line-height: 19px;
+    font-family: var(--font-family1);
+    margin: 0;
+}

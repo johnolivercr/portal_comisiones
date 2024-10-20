@@ -207,35 +207,5 @@ export class NotifyService {
 
   };
 
-  CommonNotification = (data: any) => {
-    const { title, message, btnLeft, btnRight } = data;
-    const customContent = `
-    <div class="modal-custom-general" style="min-height: 130px;">
-      <h2 class="title" >${title}</h2>
-      <p class="subtitle mb-0" >${message}</p>
-    </div>
-  `;
-    return Swal.fire({
-      position: 'center',
-      html: customContent,
-      showConfirmButton: btnLeft ? true : false,
-      confirmButtonText: btnLeft,
-      showCancelButton: btnRight ? true : false,
-      cancelButtonText: btnRight,
-      customClass: 'beneficiary-pet-product-added',
-      allowOutsideClick: false
-    }).then((result: any) => {
-      if (result.isConfirmed) {
-        console.log('ok')
-        return true
-      } else if (
-        result.dismiss === Swal.DismissReason.cancel
-      ) {
-        console.log('cancel')
-        return false
-      }
-      return false
-    });
-
-  };
+  
 }

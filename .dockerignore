@@ -1,7 +1,6 @@
 **/.classpath
 .angular
 .dockerignore
-.env
 .git
 .gitignore
 .editorconfig

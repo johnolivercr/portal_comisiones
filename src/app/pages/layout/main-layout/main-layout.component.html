@@ -1,11 +1,8 @@
 <main class="layout">
-    <ngx-gm-header [companyAbbreviation]="compannyAbbreviation" [companyName]="name" [userName]="'John Doe'"
-        (toggleSidenav)="onToggleMenu()" [profileImage]="userImage">
-    </ngx-gm-header>
+    <ngx-header [companyAbbreviation]="compannyAbbreviation" [companyName]="name" [userName]="lblUserName" 
+        (toggleSidenav)="onToggleMenu()" [profileImage]="userImage"  >
+    </ngx-header>
     <div class="layout__content-wrapper">
-        <div class="sidenav-container" [class.menu-visible]="showMenu">
-            <ngx-gm-sidenav [companyName]="companyName" [menuConfig]="menu"  [showMenu]="showMenu"></ngx-gm-sidenav>
-        </div>
         <section class="container-section" >
             <div class="content-wrapper__line-header"></div>
             <div class="layout-content">
@@ -16,4 +13,3 @@
         </section>
     </div>
 </main>
-

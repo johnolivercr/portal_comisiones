@@ -7,17 +7,16 @@ import { CommonService } from '../../shared/services/common/common.service';
 import { UiService } from 'app/shared/services/ui/ui.service';
 import { LangService } from 'app/shared/components/dropdown/lang/lang.service';
 import ILang from '@app/shared/interfaces/lang/lang.interface';
-import { TabsComponent } from './components/tabs/tabs.component';
 
 @Component({
     selector: 'app-home',
     standalone: true,
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss',
-    imports: [HeaderTitleComponent, TabsComponent]
+    imports: [HeaderTitleComponent]
 })
 export class HomeComponent {
-  public lblTitle?: string = '';
+  public lblTitle?: string = 'Bienvenid@ al portal de comisiones';
   public lblSubTitle?: string = '';
 
     constructor(
