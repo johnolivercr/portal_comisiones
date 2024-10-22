@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "@env/environment";
 import Operation from "enums/operation.enum";
@@ -88,8 +88,8 @@ export class CommonService {
 
   private createHttpOptions(microservice: string, method: string): HttpHeaders {
     let httpOptions = environment.httpOptions.headers;
-    httpOptions = httpOptions.append("gmon-microservice", microservice);
-    httpOptions = httpOptions.append("gmon-method", method);
+    // httpOptions = httpOptions.append("gmon-microservice", microservice);
+    // httpOptions = httpOptions.append("gmon-method", method);
     return httpOptions;
   }
 
@@ -110,18 +110,14 @@ export class CommonService {
   ): Observable<any> {
     const options = { headers, params };
     this.setLoading(true);
+    
     return this.http.request(method, url, {
       ...options,
       body
-    }).pipe(
-      catchError(error => {
-        return throwError(() => error.message ?? error.error.message);
-      }),
-      finalize(() => {
-        this.setLoading(false);
-      })
-    );
+    });
   }
+  
+  
 
   private mapingAuditParameter = (request: IRequest): IRequest => {
     request.audit = {};

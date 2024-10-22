@@ -1,4 +1,4 @@
-import { environment } from "../../../environments/environment.prod";
+import { environment } from '@env/environment';
 import * as CryptoJS from 'crypto-js';
 
 export class Utils {

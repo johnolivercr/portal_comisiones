@@ -51,34 +51,44 @@ export class LoginComponent implements OnInit {
   }
 
   async onLogin(identification: string) {
-    let request: IRequest = {
-      operation: Operation.POST,
-      data: {
-        identification: identification
-      },
-      microservice: environment.microservice.engine.code,
-      method: environment.microservice.engine.methods.getEmployed
-    };
+    try {
+      let request: IRequest = {
+        operation: Operation.POST,
+        data: {
+          identification: identification
+        },
+        microservice: environment.microservice.engine.code,
+        method: environment.microservice.engine.methods.getEmployed
+      };
 
-    let response = await firstValueFrom(this.commonService.executeMethod(request));
+      let response = await firstValueFrom(this.commonService.executeMethod(request));
 
-    if (!response) {
-      this.handleLoginFailure(response);
-      return;
-    }
-    const { success, data, message } = response;
-    if (!success || !data) {
-      this.handleLoginFailure(response);
-      return;
-    }
-    const userLogged: any = data;
-    if (!userLogged || userLogged == null) {
-      this.handleLoginFailure(response);
-      return;
-    }
-    this.handleSuccessfulLogin(userLogged);
+      if (!response) {
+        this.handleLoginFailure(response);
+        return;
+      }
 
-  };
+      const { success, data } = response;
+      if (!success || !data) {
+        this.handleLoginFailure(response);
+        return;
+      }
+
+      const userLogged: any = data;
+      if (!userLogged) {
+        this.handleLoginFailure(response);
+        return;
+      }
+
+      this.handleSuccessfulLogin(userLogged);
+
+    } catch (error: any) {
+      debugger
+      console.error('Error during login:', error.error);
+      //this.handleLoginFailure(null, error);
+    }
+  }
+
 
   private async handleLoginFailure(response: IResponse) {
     this.commonService.setLoading(false);
