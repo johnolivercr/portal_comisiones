@@ -1,0 +1,37 @@
+::ng-deep mat-button-toggle-group {
+    display: inline-flex;
+    display: flex;
+    justify-content: center; // Para centrar los botones horizontalmente
+    margin-top: 20px;
+    padding: 0.5rem;
+
+    mat-button-toggle {
+        border-radius: 4px;
+        background-color: lightgray;
+        color: white;
+        margin: 5px 2px; // Espacio entre botones
+        text-transform: uppercase;
+        font-weight: bold;
+        border: none;
+        flex: 1 1 auto; // Permite que los botones se ajusten al tamaño del contenedor
+        font-size: 12px !important;
+
+        &:hover {
+            background-color: lightgray; // Color de fondo al pasar el mouse
+        }
+
+        &.mat-button-toggle-checked {
+            background-color: #1e88e5; // Color de fondo cuando está activo
+            color: white;
+        }
+    }
+}
+
+.content {
+    margin-top: 20px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}

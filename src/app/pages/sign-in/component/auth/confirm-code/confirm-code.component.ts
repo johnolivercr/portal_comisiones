@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
@@ -15,15 +15,15 @@ import Operation from 'enums/operation.enum';
 import { firstValueFrom } from 'rxjs';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
-  standalone: true, // Marca el componente como independiente
-  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule]
+  selector: 'app-confirm-code',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule],
+  templateUrl: './confirm-code.component.html',
+  styleUrl: './confirm-code.component.scss'
 })
-export class LoginComponent implements OnInit {
+export class ConfirmCodeComponent {
   loginForm: FormGroup;
-
+  lblPhone: string = '**** ';
   constructor(
     private readonly fb: FormBuilder,
     private readonly commonService: CommonService,
@@ -118,7 +118,7 @@ export class LoginComponent implements OnInit {
     user.telefono1 = _userLogged?.Telefono1 ?? '';
 
 
-    if(user.permiteEntrar !== "SI") return;
+    if (user.permiteEntrar !== "SI") return;
 
     this.authService.setCurrentUser(user);
     this.commonService.setLoading(false);

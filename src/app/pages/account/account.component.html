@@ -1,0 +1,24 @@
+<div class="row m-0">
+    <mat-button-toggle-group [(ngModel)]="selectedToggle" appearance="legacy"
+        [hideSingleSelectionIndicator]="hideSingleSelectionIndicator()">
+        <mat-button-toggle value="Inicio">Inicio</mat-button-toggle>
+        <mat-button-toggle value="MovPeriodo">Mov. del periodo</mat-button-toggle>
+        <mat-button-toggle value="HistoricoVentas">Histórico de ventas</mat-button-toggle>
+    </mat-button-toggle-group>
+</div>
+
+<!-- Contenido dinámico basado en el toggle seleccionado -->
+<div *ngIf="selectedToggle === 'Inicio'" class="content">
+    <app-account-home></app-account-home>
+</div>
+
+<div *ngIf="selectedToggle === 'MovPeriodo'" class="content">
+    <h3>Contenido de Mov. del periodo</h3>
+    <app-account-movement></app-account-movement>
+
+</div>
+
+<div *ngIf="selectedToggle === 'HistoricoVentas'" class="content">
+    <h3>Contenido de Histórico de ventas</h3>
+    <app-account-sale></app-account-sale>
+</div>

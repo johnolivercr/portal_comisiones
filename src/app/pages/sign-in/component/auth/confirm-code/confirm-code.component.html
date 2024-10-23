@@ -1,0 +1,14 @@
+<div class="auth-container">
+    <h4 class="auth-subtitle">Se ha enviado un código al teléfono</h4>
+    <h4 class="auth-subtitle">{{lblPhone}}</h4>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline" class="custom-form-field">
+            <mat-label>Código de ingreso</mat-label>
+            <input matInput type="identification" formControlName="identification" placeholder="Número de cédula">
+            <mat-error *ngIf="identification?.invalid && identification?.touched">Código de ingreso</mat-error>
+          </mat-form-field>
+  
+      <button type="submit" [disabled]="loginForm.invalid">Ingresar</button>
+    </form>
+  </div>
